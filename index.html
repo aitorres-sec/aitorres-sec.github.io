@@ -1,39 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Aitorres-Sec | Red Teamer en formación</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #0d0d0d;
-      --green: #00ff88;
-      --light-green: #00ffaa;
-      --dim: #888;
-      --white: #f0f0f0;
-    }
-
     body {
-      background-color: var(--bg);
-      color: var(--green);
-      font-family: 'Fira Code', monospace;
+      background-color: #0d0d0d;
+      color: #00ff88;
+      font-family: 'Courier New', monospace;
       margin: 0;
       padding: 2rem;
     }
 
     h1, h2 {
-      color: var(--light-green);
-      text-shadow: 0 0 5px var(--green);
+      color: #00ffaa;
+      text-shadow: 0 0 10px #00ffaa;
     }
 
     a {
-      color: var(--green);
+      color: #00ff88;
       text-decoration: none;
     }
 
     a:hover {
-      color: var(--light-green);
       text-decoration: underline;
     }
 
@@ -43,80 +33,112 @@
     }
 
     .section {
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
     }
 
-    ul {
-      list-style-position: inside;
-      padding-left: 1rem;
+    .project {
+      margin-left: 1rem;
     }
 
     .footer {
       margin-top: 4rem;
       font-size: 0.9rem;
-      color: var(--dim);
+      color: #888;
+      text-align: center;
     }
 
-    .cursor {
-      animation: blink 1s infinite;
-      color: var(--green);
+    /* Máquina hackeada */
+    .machine {
+      border-left: 4px solid #00ffaa;
+      padding-left: 1rem;
+      margin-bottom: 1.5rem;
+      background-color: #111;
+      box-shadow: 0 0 15px #00ff88;
+      border-radius: 8px;
     }
 
-    @keyframes blink {
-      0%, 50%, 100% { opacity: 1; }
-      25%, 75% { opacity: 0; }
+    .machine-list {
+      list-style: none;
+      padding-left: 1rem;
+      margin: 0.5rem 0;
     }
 
-    hr {
-      border: none;
-      border-top: 1px solid #222;
-      margin: 2rem 0;
+    .machine-list li {
+      margin-bottom: 0.3rem;
+      text-shadow: 0 0 5px #00ff88;
     }
 
-    @media (max-width: 600px) {
-      body {
-        padding: 1rem;
-        font-size: 0.95rem;
-      }
+    details > summary {
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 0.5rem;
+      color: #00ffaa;
+      text-shadow: 0 0 8px #00ffaa;
+    }
 
-      h1 {
-        font-size: 1.5rem;
-      }
+    #machine-counter::before {
+      content: "(Total: ";
+    }
+
+    #machine-counter::after {
+      content: ")";
     }
   </style>
 </head>
+
 <body>
   <div class="container">
-    <h1>Aitorres-sec<span class="cursor">|</span></h1>
+    <h1>Aitorres-sec</h1>
     <p><em>Red teamer en formación | Linux, redes, web, post-explotación</em></p>
 
     <div class="section">
       <h2>🚀 Sobre mí</h2>
-      <p>Aprendiendo hacking ofensivo. </p>
+      <p>Aprendiendo hacking ofensivo con enfoque en entornos reales. Esta página contiene mi progreso, máquinas hackeadas y futuros proyectos.</p>
     </div>
-
-    <hr>
 
     <div class="section">
-      <h2>💻 Máquinas Hackeadas</h2>
-      <ul>
-        <li><strong>Blue (HTB):</strong> Escalada por EternalBlue, post-explotación con meterpreter. ✅</li>
-        <li><strong>Mr. Robot (VulnHub):</strong> WordPress + local.txt/root.txt 🧠</li>
-      </ul>
-    </div>
+      <h2>💻 Máquinas Hackeadas <span id="machine-counter"></span></h2>
 
-    <hr>
+      <section class="machine">
+        <details open>
+          <summary>🟢 Blue (HTB)</summary>
+          <ul class="machine-list">
+            <li>🛡️ <strong>Vulnerabilidad:</strong> EternalBlue (MS17-010)</li>
+            <li>🧰 <strong>Herramienta:</strong> Metasploit</li>
+            <li>🐚 <strong>Shell:</strong> Meterpreter</li>
+            <li>🧭 <strong>Post-Explotación:</strong> Hashdump + getsystem</li>
+            <li>📄 <strong>Writeup:</strong> <a href="#">Ver aquí</a></li>
+            <li>✅ <strong>Estado:</strong> Completada</li>
+          </ul>
+        </details>
+      </section>
+
+      <section class="machine">
+        <details>
+          <summary>🧠 Mr. Robot (VulnHub)</summary>
+          <ul class="machine-list">
+            <li>🔍 <strong>Vulnerabilidad:</strong> WordPress + Fuerza bruta</li>
+            <li>🧰 <strong>Herramienta:</strong> Burp Suite + Hydra</li>
+            <li>🐚 <strong>Shell:</strong> Reverse shell via fsociety exploit</li>
+            <li>🧭 <strong>Post-Explotación:</strong> local.txt y root.txt</li>
+            <li>📄 <strong>Writeup:</strong> <a href="#">(Próximamente)</a></li>
+            <li>✅ <strong>Estado:</strong> Completada</li>
+          </ul>
+        </details>
+      </section>
+
+      <!-- Puedes duplicar esta sección .machine para más máquinas -->
+    </div>
 
     <div class="section">
       <h2>🛠️ Proyectos</h2>
       <ul>
-        <li><strong>Writeups</strong>: <a href="#">(próximamente)</a></li>
-        <li><strong>Scripts Bash</strong>: <a href="#">(próximamente)</a></li>
-        <li><strong>Notas de estudio</strong>: <a href="#">(próximamente)</a></li>
+        <li class="project"><strong>Writeups:</strong> <a href="#">(Próximamente)</a></li>
+        <li class="project"><strong>Scripts Bash:</strong> <a href="#">(Próximamente)</a></li>
+        <li class="project"><strong>Notas de estudio:</strong> <a href="#">(Próximamente)</a></li>
       </ul>
     </div>
-
-    <hr>
 
     <div class="section">
       <h2>🌐 Contacto</h2>
@@ -131,6 +153,14 @@
       <p>© 2025 Aitorres-sec. Todos los derechos reservados.</p>
     </div>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const count = document.querySelectorAll('.machine').length;
+      document.getElementById('machine-counter').textContent = count;
+    });
+  </script>
 </body>
 </html>
+
 
