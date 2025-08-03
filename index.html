@@ -1,3 +1,7 @@
+Código actualizado con línea visual:
+html
+Copiar
+Editar
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -32,6 +36,14 @@
       margin: auto;
     }
 
+    .linea {
+      height: 3px;
+      background-color: #00ffaa;
+      box-shadow: 0 0 10px #00ffaa, 0 0 20px #00ffaa;
+      margin: 1rem 0 2rem 0;
+      border-radius: 5px;
+    }
+
     .section {
       margin-bottom: 2rem;
     }
@@ -47,7 +59,6 @@
       text-align: center;
     }
 
-    /* Máquina hackeada */
     .machine {
       border-left: 4px solid #00ffaa;
       padding-left: 1rem;
@@ -91,6 +102,7 @@
   <div class="container">
     <!-- TÍTULO -->
     <h1>Aitorres-sec</h1>
+    <div class="linea"></div>
     <p><em>Red teamer en formación | Linux, redes, web, post-explotación</em></p>
 
     <!-- CONTACTO -->
@@ -170,7 +182,7 @@
     </div>
   </div>
 
-  <!-- CONTADOR -->
+  <!-- CONTADOR DE MÁQUINAS -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const count = document.querySelectorAll('.machine').length;
