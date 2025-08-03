@@ -89,22 +89,36 @@
 
 <body>
   <div class="container">
+    <!-- TÍTULO -->
     <h1>Aitorres-sec</h1>
     <p><em>Red teamer en formación | Linux, redes, web, post-explotación</em></p>
 
+    <!-- CONTACTO -->
+    <div class="section">
+      <h2>🌐 Contacto</h2>
+      <ul>
+        <li><a href="https://github.com/aitorres-sec" target="_blank">GitHub</a></li>
+        <li><a href="#">HackTheBox (pronto)</a></li>
+        <li><a href="#">TryHackMe (pronto)</a></li>
+        <li><a href="mailto:aitorres@correo.com">Correo electrónico</a></li>
+      </ul>
+    </div>
+
+    <!-- SOBRE MÍ -->
     <div class="section">
       <h2>🚀 Sobre mí</h2>
       <p>Aprendiendo hacking ofensivo con enfoque en entornos reales. Esta página contiene mi progreso, máquinas hackeadas y futuros proyectos.</p>
     </div>
 
+    <!-- MÁQUINAS HACKEADAS -->
     <div class="section">
       <h2>💻 Máquinas Hackeadas <span id="machine-counter"></span></h2>
 
       <section class="machine">
         <details open>
-          <summary>🔵 Blue (HTB)</summary>
+          <summary>🟢 Blue (HTB)</summary>
           <ul class="machine-list">
-            <li>🔍 <strong>Vulnerabilidad:</strong> EternalBlue (MS17-010)</li>
+            <li>🛡️ <strong>Vulnerabilidad:</strong> EternalBlue (MS17-010)</li>
             <li>🧰 <strong>Herramienta:</strong> Metasploit</li>
             <li>🐚 <strong>Shell:</strong> Meterpreter</li>
             <li>🧭 <strong>Post-Explotación:</strong> Hashdump + getsystem</li>
@@ -116,7 +130,7 @@
 
       <section class="machine">
         <details>
-          <summary>🤖 Mr. Robot (VulnHub)</summary>
+          <summary>🧠 Mr. Robot (VulnHub)</summary>
           <ul class="machine-list">
             <li>🔍 <strong>Vulnerabilidad:</strong> WordPress + Fuerza bruta</li>
             <li>🧰 <strong>Herramienta:</strong> Burp Suite + Hydra</li>
@@ -127,33 +141,36 @@
           </ul>
         </details>
       </section>
-
-      <!-- Puedes duplicar esta sección .machine para más máquinas -->
     </div>
 
+    <!-- PROYECTOS -->
     <div class="section">
       <h2>🛠️ Proyectos</h2>
       <ul>
-        <li><strong>Writeups</strong>: <a href="#">(próximamente)</a></li>
-        <li><strong>Scripts Bash</strong>: <a href="#">(próximamente)</a></li>
-        <li><strong>Notas de estudio</strong>: <a href="#">(próximamente)</a></li>
+        <li class="project"><strong>Writeups:</strong> <a href="#">(Próximamente)</a></li>
+        <li class="project"><strong>Scripts Bash:</strong> <a href="#">(Próximamente)</a></li>
+        <li class="project"><strong>Herramientas personales:</strong> <a href="#">(En desarrollo)</a></li>
       </ul>
     </div>
 
+    <!-- NOTAS -->
     <div class="section">
-      <h2>🌐 Contacto</h2>
+      <h2>📚 Notas de estudio</h2>
       <ul>
-        <li><a href="https://github.com/aitorres-sec" target="_blank">GitHub</a></li>
-        <li><a href="#">HackTheBox (pronto)</a></li>
-        <li><a href="#">TryHackMe (pronto)</a></li>
+        <li class="project"><a href="#">Linux básico</a></li>
+        <li class="project"><a href="#">Redes para ofensiva</a></li>
+        <li class="project"><a href="#">Seguridad web</a></li>
+        <li class="project"><a href="#">Post-explotación</a></li>
       </ul>
     </div>
 
+    <!-- FOOTER -->
     <div class="footer">
       <p>© 2025 Aitorres-sec. Todos los derechos reservados.</p>
     </div>
   </div>
 
+  <!-- CONTADOR -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const count = document.querySelectorAll('.machine').length;
@@ -162,5 +179,6 @@
   </script>
 </body>
 </html>
+
 
 
