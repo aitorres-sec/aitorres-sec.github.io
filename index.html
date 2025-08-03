@@ -91,13 +91,25 @@
     #machine-counter::after {
       content: ")";
     }
+    .cursor {
+    display: inline-block;
+    width: 10px;
+    color: #00ff88;
+    animation: blink 0.9s steps(1) infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+
   </style>
 </head>
 
 <body>
   <div class="container">
     <!-- TÍTULO -->
-    <h1>Aitorres-sec</h1>
+    <h1>Aitorres-sec<span class="cursor">|</span></h1>
     <div class="linea"></div>
     <p><em>Red teamer en formación | Linux, redes, web, post-explotación</em></p>
 
