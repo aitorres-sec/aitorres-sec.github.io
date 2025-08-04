@@ -5,21 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Aitorres-Sec | Red Teamer en formación</title>
   <style>
+    :root {
+      --bg-color: #0d0d0d;
+      --text-color: #00ff88;
+      --highlight: #00ffaa;
+      --box-bg: #111;
+    }
+
     body {
-      background-color: #0d0d0d;
-      color: #00ff88;
+      background-color: var(--bg-color);
+      color: var(--text-color);
       font-family: 'Courier New', monospace;
       margin: 0;
       padding: 2rem;
+      transition: background 0.4s ease, color 0.4s ease;
     }
 
     h1, h2 {
-      color: #00ffaa;
-      text-shadow: 0 0 10px #00ffaa;
+      color: var(--highlight);
+      text-shadow: 0 0 10px var(--highlight);
+    }
+
+    h1 {
+      animation: neon-glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes neon-glow {
+      from { text-shadow: 0 0 5px var(--highlight); }
+      to { text-shadow: 0 0 20px var(--highlight), 0 0 30px var(--highlight); }
     }
 
     a {
-      color: #00ff88;
+      color: var(--text-color);
       text-decoration: none;
     }
 
@@ -34,14 +51,20 @@
 
     .linea {
       height: 3px;
-      background-color: #00ffaa;
-      box-shadow: 0 0 10px #00ffaa, 0 0 20px #00ffaa;
+      background-color: var(--highlight);
+      box-shadow: 0 0 10px var(--highlight), 0 0 20px var(--highlight);
       margin: 1rem 0 2rem 0;
       border-radius: 5px;
     }
 
     .section {
       margin-bottom: 2rem;
+      animation: fade-in 1s ease;
+    }
+
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .project {
@@ -56,23 +79,29 @@
     }
 
     .machine {
-      border-left: 4px solid #00ffaa;
+      border-left: 4px solid var(--highlight);
       padding-left: 1rem;
       margin-bottom: 1.5rem;
-      background-color: #111;
-      box-shadow: 0 0 15px #00ff88;
+      background-color: var(--box-bg);
+      box-shadow: 0 0 15px var(--text-color);
       border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .machine:hover {
+      transform: scale(1.01);
     }
 
     .machine-list {
       list-style: none;
       padding-left: 1rem;
       margin: 0.5rem 0;
+      overflow: hidden;
     }
 
     .machine-list li {
       margin-bottom: 0.3rem;
-      text-shadow: 0 0 5px #00ff88;
+      text-shadow: 0 0 5px var(--text-color);
     }
 
     details > summary {
@@ -80,8 +109,25 @@
       font-weight: bold;
       cursor: pointer;
       margin-bottom: 0.5rem;
-      color: #00ffaa;
-      text-shadow: 0 0 8px #00ffaa;
+      color: var(--highlight);
+      text-shadow: 0 0 8px var(--highlight);
+    }
+
+    details[open] summary ~ * {
+      animation: slideDown 0.4s ease forwards;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+        max-height: 0;
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 1000px;
+      }
     }
 
     #machine-counter::before {
@@ -91,49 +137,69 @@
     #machine-counter::after {
       content: ")";
     }
+
     .cursor {
-    display: inline-block;
-    width: 10px;
-    color: #00ff88;
-    animation: blink 0.9s steps(1) infinite;
-}
+      display: inline-block;
+      width: 10px;
+      color: var(--text-color);
+      animation: blink 0.9s steps(1) infinite;
+    }
 
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  50.01%, 100% { opacity: 0; }
-}
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
 
+    .glitch-button {
+      background-color: transparent;
+      border: 2px solid var(--highlight);
+      color: var(--highlight);
+      padding: 0.4rem 1rem;
+      font-family: inherit;
+      font-size: 1rem;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glitch-button::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: var(--highlight);
+      opacity: 0.2;
+      transform: skewX(-20deg);
+      animation: glitch-slide 2s infinite;
+    }
+
+    @keyframes glitch-slide {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
   </style>
 </head>
-
 <body>
   <div class="container">
-    <!-- TÍTULO -->
     <h1>Aitorres-sec<span class="cursor">|</span></h1>
     <div class="linea"></div>
     <p><em>Red teamer en formación | Linux, redes, web, post-explotación</em></p>
 
-    <!-- CONTACTO -->
     <div class="section">
       <h2>🌐 Contacto</h2>
-      <ul>
-        <li><a href="https://github.com/aitorres-sec" target="_blank">GitHub</a></li>
-        <li><a href="#">HackTheBox (pronto)</a></li>
-        <li><a href="#">TryHackMe (pronto)</a></li>
-        <li><a href="mailto:aaron.fzb@gmail.com">Correo electrónico</a></li>
-      </ul>
+      <p><a href="https://github.com/aitorres-sec" target="_blank">GitHub</a></p>
+      <p><a href="#">HackTheBox (pronto)</a></p>
+      <p><a href="#">TryHackMe (pronto)</a></p>
+      <p><button class="glitch-button" onclick="copyEmail()">Copiar correo</button> <span id="copied-msg" style="margin-left:1rem;"></span></p>
     </div>
 
-    <!-- SOBRE MÍ -->
     <div class="section">
       <h2>🚀 Sobre mí</h2>
       <p>Aprendiendo hacking ofensivo con enfoque en entornos reales. Esta página contiene mi progreso, máquinas hackeadas y futuros proyectos.</p>
     </div>
 
-    <!-- MÁQUINAS HACKEADAS -->
     <div class="section">
       <h2>💻 Máquinas Hackeadas <span id="machine-counter"></span></h2>
-
       <section class="machine">
         <details open>
           <summary>🔵 Blue (HTB)</summary>
@@ -163,7 +229,6 @@
       </section>
     </div>
 
-    <!-- PROYECTOS -->
     <div class="section">
       <h2>🛠️ Proyectos</h2>
       <ul>
@@ -173,7 +238,6 @@
       </ul>
     </div>
 
-    <!-- NOTAS -->
     <div class="section">
       <h2>📚 Notas de estudio</h2>
       <ul>
@@ -184,21 +248,43 @@
       </ul>
     </div>
 
-    <!-- FOOTER -->
     <div class="footer">
       <p>© 2025 Aitorres-sec. Todos los derechos reservados.</p>
+      <button class="glitch-button" onclick="toggleTheme()">🌗 Modo oscuro/claro</button>
     </div>
   </div>
 
-  <!-- CONTADOR DE MÁQUINAS -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const count = document.querySelectorAll('.machine').length;
       document.getElementById('machine-counter').textContent = count;
     });
+
+    function copyEmail() {
+      navigator.clipboard.writeText('aaron.fzb@gmail.com');
+      document.getElementById('copied-msg').textContent = '📋 ¡Copiado!';
+      setTimeout(() => document.getElementById('copied-msg').textContent = '', 2000);
+    }
+
+    function toggleTheme() {
+      const root = document.documentElement;
+      const dark = getComputedStyle(root).getPropertyValue('--bg-color').trim() === '#0d0d0d';
+      if (dark) {
+        root.style.setProperty('--bg-color', '#ffffff');
+        root.style.setProperty('--text-color', '#222222');
+        root.style.setProperty('--highlight', '#0055ff');
+        root.style.setProperty('--box-bg', '#eeeeee');
+      } else {
+        root.style.setProperty('--bg-color', '#0d0d0d');
+        root.style.setProperty('--text-color', '#00ff88');
+        root.style.setProperty('--highlight', '#00ffaa');
+        root.style.setProperty('--box-bg', '#111');
+      }
+    }
   </script>
 </body>
 </html>
+
 
 
 
